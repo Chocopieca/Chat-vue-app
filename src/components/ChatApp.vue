@@ -15,28 +15,28 @@
         </v-alert>
       </v-col>
     </v-row>
-    <v-row no-gutters class="mb-3">
-      <v-col cols="12" sm="8" class="offset-sm-4">
-        <div class="d-flex justify-end">
+    <v-row no-gutters class="mb-5">
+      <v-col cols="12" sm="9" class="offset-sm-3">
+        <div class="d-flex justify-end mx-5">
           Услуги
         </div>
         <v-divider class="my-2"/>
         <v-row no-gutters class="mb-1">
-          <v-col cols="10" class="pa-0 size13-weight400" :style="{ background: userQuality(userQuality1)}">Ручное бронирование</v-col>
-          <v-col cols="2" class="pa-0 d-flex justify-center">{{ userQuality1 }}</v-col>
+          <v-col cols="9" class="pa-0 size13-weight400" :style="{ background: userQuality(userQuality1)}">Ручное бронирование</v-col>
+          <v-col cols="3" class="pa-0 d-flex justify-center px-5 size13-weight700">{{ userQuality1 }}</v-col>
         </v-row>
         <v-row no-gutters class="mb-1">
-          <v-col cols="10" class="pa-0 size13-weight400" :style="{ background: userQuality(userQuality2)}">Пакетные туры</v-col>
-          <v-col cols="2" class="pa-0 d-flex justify-center">{{ userQuality2 }}</v-col>
+          <v-col cols="9" class="pa-0 size13-weight400" :style="{ background: userQuality(userQuality2)}">Пакетные туры</v-col>
+          <v-col cols="3" class="pa-0 d-flex justify-center px-5 size13-weight700">{{ userQuality2 }}</v-col>
         </v-row>
         <v-row no-gutters class="mb-1">
-          <v-col cols="10" class="pa-0 size13-weight400" :style="{ background: userQuality(userQuality3)}">Отели</v-col>
-          <v-col cols="2" class="pa-0 d-flex justify-center">{{ userQuality3 }}</v-col>
+          <v-col cols="9" class="pa-0 size13-weight400" :style="{ background: userQuality(userQuality3)}">Отели</v-col>
+          <v-col cols="3" class="pa-0 d-flex justify-center px-5 size13-weight700">{{ userQuality3 }}</v-col>
         </v-row>
         <v-divider class="my-2"/>
         <v-row no-gutters class="mb-1 size16-weight700">
-          <v-col cols="10" class="pa-0">Всего</v-col>
-          <v-col cols="2" class="pa-0 d-flex justify-center">{{ totalQuality }}</v-col>
+          <v-col cols="9" class="pa-0">Всего</v-col>
+          <v-col cols="3" class="pa-0 d-flex justify-center px-5">{{ totalQuality }}</v-col>
         </v-row>
       </v-col>
     </v-row>
@@ -52,15 +52,15 @@
     </div>
     <template v-if="comments.length > 0">
       <div v-for="(comment, i) in comments" :key="i" class="mb-5">
-        <div class="mb-5">
-          <span class="size14-weight700">
+        <div class="mb-4">
+          <span class="size14-weight700 mr-1">
             {{ comment.name }}
           </span>
           <span class="size13-weight400">
             {{ comment.date }}
           </span>
         </div>
-        <div class="chat-comment size14-weight400">
+        <div class="chat-comment size14-weight400 pa-5">
           {{ comment.text }}
         </div>
       </div>
@@ -71,6 +71,8 @@
     <v-textarea
         v-model="text"
         hide-details
+        no-resize
+        height="63"
         solo
         name="comment"
         class="mb-5"
@@ -183,7 +185,6 @@
 
     &-comment {
       position: relative;
-      padding: 20px;
       background: var(--v-message-base);
       border: 1px solid #C4CBCF;
 
@@ -192,12 +193,14 @@
         position: absolute;
         width: 0;
         height: 0;
-        left: 8px;
-        top: -13px;
-        border: 11px solid;
+        left: 10px;
+        top: -11px;
+        border: 10px solid;
         border-color: #C4CBCF transparent transparent #C4CBCF;
         z-index: 1;
-        transform: rotate(135deg);
+        transform: rotate(
+                135deg
+        );
       }
 
       &:after {
@@ -210,7 +213,9 @@
         border: 10px solid;
         border-color: var(--v-message-base) var(--v-message-base) transparent var(--v-message-base);
         z-index: 1;
-        transform: rotate(135deg);
+        transform: rotate(
+                135deg
+        );
       }
     }
   }
